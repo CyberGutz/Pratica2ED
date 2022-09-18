@@ -23,13 +23,18 @@ typedef struct pilha{
     int topo;
 }pilha;
 
+//As variáveis das estruturas são globais, de modo que as funções consigam acessar a estrutura de outra
+lista *li;
+fila *fw, *fy, *fb, *fg, *fp;     
+pilha *pw, *py, *pb, *pg, *pp;
+
 void crial(lista *list);
 void criaf(fila *queue);
 void criap(pilha *stack);
 
-void inserel(lista *list, ciclista *elemento);
-void inseref(fila *queue, ciclista *elemento);
-void inserep(pilha *stack, ciclista *elemento);
+void inserel(lista *list, ciclista *ins);
+void inseref(fila *queue, ciclista *ins);
+void inserep(pilha *stack, fila *queue);
 
 void imprimel(lista list);
 void imprimef(fila queue);

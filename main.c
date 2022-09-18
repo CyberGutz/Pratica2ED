@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <locale.h>
 #include "evento.h"
 
 int main(){
     setlocale(LC_ALL, "Pt-BR");
     ciclista *entrada;
-    lista *li;
-    fila *fw, *fy, *fb, *fg, *fp;     
-    pilha *pw, *py, *pb, *pg, *pp;
     int option;
-
+    
     //cria a lista
     crial(li);
 
@@ -53,7 +51,14 @@ int main(){
             scanf("%d*c",&entrada->matricula);
             printf("Digite o Pelotão do ciclista ---> ");
             scanf("%s*c",entrada->pelotao);
-            inserel(li, entrada);
+            tolower(entrada->pelotao);
+
+            //Verifica se o usuário não fez nenhuma entrada ilegal
+            if(strcmp(entrada->pelotao, "branco")!=0 || strcmp(entrada->pelotao, "amarelo")!=0 || strcmp(entrada->pelotao, "azul")!=0 || strcmp(entrada->pelotao, "verde")!=0 || strcmp(entrada->pelotao, "roxo")!=0)
+                printf("---> Entrada inválida <---");
+            
+            else
+                inserel(li, entrada);
         break;
 
         case 2:
@@ -72,6 +77,25 @@ int main(){
             printf("---> Pelotão Roxo: \n\n");
             imprimef(*fp);
         break;
+
+        case 4: 
+            //Gera os vencedores de todas os pelotões
+            inserep(pw, fw);
+            inserep(py, fy);
+            inserep(pb, fb);
+            inserep(pg, fg);
+            inserep(pp, fp);
+            //E imprime os vencedores de cada uma
+            printf("\n---> Vencedores do Pelotão Branco: \n\n");
+            imprimep(*pw);
+            printf("\n---> Vencedores do Pelotão Amarelo: \n\n");
+            imprimep(*py);
+            printf("\n---> Vencedores do Pelotão Azul: \n\n");
+            imprimep(*pb);
+            printf("\n---> Vencedores do Pelotão Verde: \n\n");
+            imprimep(*pg);
+            printf("\n---> Vencedores do Pelotão Roxo: \n\n");
+            imprimep(*pp);
         
         default:
             printf("---> OPÇÃO INVÁLIDA <---\n\n");
