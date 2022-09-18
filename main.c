@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 #include <locale.h>
 #include "evento.h"
 
@@ -51,10 +50,9 @@ int main(){
             scanf("%d*c",&entrada->matricula);
             printf("Digite o Pelotão do ciclista ---> ");
             scanf("%s*c",entrada->pelotao);
-            tolower(entrada->pelotao);
 
             //Verifica se o usuário não fez nenhuma entrada ilegal
-            if(strcmp(entrada->pelotao, "branco")!=0 || strcmp(entrada->pelotao, "amarelo")!=0 || strcmp(entrada->pelotao, "azul")!=0 || strcmp(entrada->pelotao, "verde")!=0 || strcmp(entrada->pelotao, "roxo")!=0)
+            if((strcmp(entrada->pelotao, "branco"))!=0 || (strcmp(entrada->pelotao, "amarelo"))!=0 || (strcmp(entrada->pelotao, "azul"))!=0 || (strcmp(entrada->pelotao, "verde"))!=0 || (strcmp(entrada->pelotao, "roxo"))!=0)
                 printf("---> Entrada inválida <---");
             
             else

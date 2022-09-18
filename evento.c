@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "evento.h"
 
 void crial(lista *list){
@@ -99,7 +100,7 @@ void imprimel(lista list){
 
     for(i = list.primeiro; i<list.ultimo; i++){
         printf("\nPelotão: %s\n",list.elemento[i].pelotao);
-        printf(" Matricula: %d\n",list.elemento[i].pelotao);
+        printf(" Matricula: %d\n",list.elemento[i].matricula);
     }
 }
 
