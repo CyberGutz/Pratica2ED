@@ -3,21 +3,27 @@
 #include <string.h>
 #include "evento.h"
 
-void crial(lista *list){
+lista *crial(){
+    lista *list;
     list->primeiro = 0;
     list->ultimo = list->primeiro;
+    return list;
 }
 
-void criaf(fila *queue){
+fila *criaf(){
+    fila *queue;
     queue->primeiro = 0;
     queue->ultimo = queue->primeiro;
+    return queue;
 }
 
-void criap(pilha *stack){
+pilha *criap(){
+    pilha *stack;
     stack->topo = 0;
+    return stack;
 }
 
-void inserel(lista *list, ciclista *ins){
+void inserel(lista *list, ciclista *ins, fila *queue){
     ciclista *temp;
     int i = list->primeiro;
     int j;
@@ -43,16 +49,7 @@ void inserel(lista *list, ciclista *ins){
             *ins = *temp;
         }
 
-        if(strcmp(ins->pelotao, "branco")) 
-            inseref(fw, ins);
-        else if(strcmp(ins->pelotao, "amarelo")) 
-            inseref(fy, ins);
-        else if(strcmp(ins->pelotao, "azul")) 
-            inseref(fb, ins);
-        else if(strcmp(ins->pelotao, "verde")) 
-            inseref(fg, ins);
-        else
-            inseref(fp, ins);
+        inseref(queue, ins);
 
     }
 }

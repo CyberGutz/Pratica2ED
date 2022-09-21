@@ -8,23 +8,23 @@ int main(){
     setlocale(LC_ALL, "Pt-BR");
     ciclista *entrada;
     int option;
-    
+
     //cria a lista
-    crial(li);
+    lista *li = crial();
 
     //cria as filas
-    criaf(fw);         //branco (white)
-    criaf(fy);         //amarelo (yellow)
-    criaf(fb);         //azul (blue)
-    criaf(fg);         //verde (green)
-    criaf(fp);         //roxo (purple)
+    fila *fw = criaf();         //branco (white)
+    fila *fy = criaf();         //amarelo (yellow)
+    fila *fb = criaf();         //azul (blue)
+    fila *fg = criaf();         //verde (green)
+    fila *fp = criaf();         //roxo (purple)
 
     //cria as pilhas
-    criap(pw);
-    criap(py);
-    criap(pb);
-    criap(pg);
-    criap(pp);
+    pilha *pw = criap();
+    pilha *py = criap();
+    pilha *pb = criap();
+    pilha *pg = criap();
+    pilha *pp = criap();
 
     do
     {
@@ -56,7 +56,16 @@ int main(){
                 printf("---> Entrada inválida <---");
             
             else
-                inserel(li, entrada);
+                if(strcmp(entrada->pelotao, "branco")) 
+                    inserel(li, entrada, fw);
+                else if(strcmp(entrada->pelotao, "amarelo")) 
+                    inserel(li, entrada, fy);
+                else if(strcmp(entrada->pelotao, "azul")) 
+                    inserel(li, entrada, fb);
+                else if(strcmp(entrada->pelotao, "verde")) 
+                    inserel(li, entrada, fg);
+                else
+                    inserel(li, entrada, fp);
         break;
 
         case 2:
